@@ -252,3 +252,204 @@ header {
 .fa:hover {
   opacity: 0.8;
 }
+/* =========================
+   Page-specific headers
+   ========================= */
+#home header {
+  background: url("partners/images/cliff_ocean.jpg") no-repeat center/cover;
+}
+#activities header {
+  background: url("cliff_rock.jpg") no-repeat center/cover;   /* 放在根目录就用这个路径 */
+}
+#contact header {
+  background: url("runfly.jpg") no-repeat center/cover;
+}
+
+/* =========================
+   Activities (page2) table
+   ========================= */
+#activities main table {
+  width: 92%;
+  margin: 20px auto;
+  border-collapse: collapse;       /* 合并边框：所有分割线清晰 */
+  table-layout: fixed;             /* 单元格更均匀 */
+}
+#activities main caption {
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px;
+  color: #753a30;
+  border: 1px solid #000;          /* caption 外框 */
+  border-bottom: none;             /* 与表格无缝衔接 */
+}
+#activities main th,
+#activities main td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+  height: 44px;
+  word-break: break-word;
+}
+#activities main thead th { background: #f5f5f5; }
+#activities main tbody tr:nth-child(even) td { background: #fafafa; }
+#activities main tfoot td { background: #f5f5f5; font-style: italic; }
+
+/* 可选：第一列（活动名）强调 */
+#activities main tbody td:first-child {
+  font-weight: 600;
+  background: #eef7e9;
+}
+
+/* =========================
+   Contact (page3) form
+   ========================= */
+#contact .contactinfo {
+  display: flex;
+  flex-direction: column; /* 垂直方向排列 */
+  align-items: flex-start; /* 靠左对齐 */
+  gap: 8px; /* 上下间距 */
+}
+.contactinfo .phone,
+.contactinfo .email {
+  display: flex;
+  gap: 6px; /* Phone: / Email: 标签与内容之间的间距 */
+}
+#contact .contactinfo span:first-child {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+#contact form {
+  width: min(720px, 94%);
+  margin: 16px auto 24px;
+}
+#contact fieldset {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+}
+#contact legend {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0 6px;
+}
+
+/* 统一输入类 */
+#contact .textbox label,
+#contact .radios label,
+#contact .selectmenu label,
+#contact .commentbox label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+#contact input[type="text"],
+#contact input[type="email"],
+#contact select,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: #fff;
+}
+#contact textarea { min-height: 110px; resize: vertical; }
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact select:focus,
+#contact textarea:focus {
+  outline: none;
+  border-color: #0b3d91;
+  box-shadow: 0 0 0 3px rgba(11,61,145,.15);
+}
+
+/* radios 横排 */
+#contact .radios input[type="radio"] {
+  width: auto; margin: 0 6px 0 0;
+}
+#contact .radios label { display: inline-block; margin-right: 12px; font-weight: 400; }
+
+/* 按钮 */
+#contact .button { margin-top: 14px; }
+#contact .button input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #4977D1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#contact .button input[type="submit"]:hover { filter: brightness(0.95); }
+
+/* 小屏优化 */
+@media (max-width: 640px) {
+  #contact .contactinfo { grid-template-columns: 1fr; }
+  #contact form { width: 100%; }
+}
+
+/* =========================
+   Activities (page2) table
+   ========================= */
+#activities main table {
+  width: 92%;
+  margin: 20px auto;
+  border-collapse: collapse;   /* 合并边框，线条清晰 */
+  table-layout: fixed;         /* 列宽更均匀 */
+}
+
+/* caption：红底白字，上边框与表格无缝衔接 */
+#activities main caption {
+  background: #7a1a1a;         /* 深红 */
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+/* 基础单元格：统一边框/内边距/居中 */
+#activities main th,
+#activities main td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+  height: 44px;
+  word-break: break-word;
+}
+
+/* 表头整行：蓝底白字 */
+#activities main thead th {
+  background: #216dcf;         /* 蓝色 */
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 内容单元格：浅绿底 */
+#activities main tbody td {
+  background: #9cd89c;         /* 浅绿 */
+  color: #000;
+}
+
+/* 第一列（活动名）：蓝底白字，覆盖浅绿 */
+#activities main tbody td:first-child {
+  background: #216dcf;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 表尾：更浅的绿，并用斜体提示 */
+#activities main tfoot td {
+  background: #a8ffa8;
+  font-style: italic;
+}
+/*DEBUG*/
+#activities main tbody tr > :is(th, td):first-child {
+  background: #216dcf !important;
+  color: #fff !important;
+  font-weight: 700;
+}
