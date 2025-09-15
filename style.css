@@ -9,447 +9,187 @@ body {
 }
 
 /* 容器：限制整体宽度并居中 */
-.container {
-  width: min(1100px, 94%);
-  margin: 0 auto;
-}
+.container { width: min(1100px, 94%); margin: 0 auto; }
 
-/* ========== Header ========== */
-/* 如果有头图，可把下面 background 改成：background: url("images/header.jpg") center/cover no-repeat; */
+/* ========== Header（通用） ========== */
 header {
-  background: linear-gradient(135deg, #0b3d91 0%, #1a237e 100%);
   color: #fff;
-  padding: 12px 0;
+  height: 400px;               /* 默认头图高度，可按页面覆盖 */
+  position: relative;          /* 让内部浮在背景上 */
+  background: linear-gradient(135deg, #0b3d91 0%, #1a237e 100%); /* 无图时的渐变兜底 */
+  background-size: cover;
+  background-position: center;
 }
-
-.main-header {
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px 16px;
-  background: rgba(0,0,0,0.15);         /* 半透明条，让文字更清楚 */
-  border-radius: 10px;
+.main-header{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 860px);
+  padding: 12px 24px;
+  background: rgba(255,255,255,.8);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
+.logo img { height: 60px; width: auto; }
 
-.logo h3 {
-  margin: 0;
-  color: #fff;
-  letter-spacing: .5px;
-}
-
-/* ========== 主导航 ========== */
-.main-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.main-menu li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
+/* 主导航 */
+.main-menu ul { margin: 0; padding: 0; list-style: none; }
+.main-menu li { display: inline-block; margin: 0 10px; }
 .main-menu a {
-  color: #fff;
   text-decoration: none;
+  font-weight: bold;
   padding: 6px 8px;
   border-radius: 6px;
   transition: background .2s ease, color .2s ease;
+  color: #333;                /* 在白底条上用深色文字 */
 }
+.main-menu a:hover { color: #9ed034; }
+.main-menu a.active { background: #9ed034; color: #133a00; }
 
-.main-menu a:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-.main-menu a.active {
-  background: #9ed034;            /* 课件绿色 */
-  color: #133a00;
-  font-weight: bold;
-}
+/* ========== Page-specific headers（按页面换图） ========== */
+#home header      { background-image: url("partners/images/cliff_ocean.jpg"); }
+#activities header{ background-image: url("cliff_rock.jpg"); }
+#contact header   { background-image: url("runfly.jpg"); }
+#cliffs header    { background-image: url("forest_cliff.jpg"); }
 
 /* ========== Main 内容 ========== */
 main { padding: 22px 4px 28px; }
+main h2 { color: #9ed034; margin: 0 0 10px; }
+main h3 { color: #205b2f; margin: 18px 0 8px; }
+main p  { margin: 0 0 14px; }
 
-main h2 {
-  color: #9ed034;
-  margin: 0 0 10px;
+/* ========== Partners 区域（只作用于 partners section） ========== */
+#partners-section {
+  background-color: #41aaea;     /* 蓝底，只给合作伙伴区域 */
+  padding: 30px 0;
 }
-
-main h3 {
-  color: #205b2f;
-  margin: 18px 0 8px;
-}
-
-main p { margin: 0 0 14px; }
-
-/* 整个 partners 区域长方形背景 */
-section {
-  background-color: #3887db;   /* 蓝色背景 */
-  padding: 30px 0;             /* 上下留白 */
-}
-
-/* 伙伴列表：水平居中 */
 #partners {
   list-style: none;
   margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;             /* 自动换行 */
+  flex-wrap: wrap;
   gap: 20px;
-  max-width: 1000px;           /* 可以限制最大宽度 */
+  max-width: 1000px;
 }
-
-/* 每个 partner 是小圆形 */
-#partners .partner {
-  width: 100px;
-  height: 100px;
-  background: white;           /* 小圆底色白色，更突出 */
+#partners .partner{
+  width: 100px; height: 100px;
+  background: #fff;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
-
-/* 图片缩放居中显示 */
-#partners .partner img {
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-}
-
+#partners .partner img{ max-width: 70%; max-height: 70%; object-fit: contain; }
 
 /* ========== Footer ========== */
-footer {
-  background: #222;
-  color: #eee;
-  margin-top: 24px;
+footer { background: #222; color: #eee; margin-top: 24px; }
+#nondisclaimer{
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 16px; border-bottom: 1px solid #333;
 }
-
-#nondisclaimer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  border-bottom: 1px solid #333;
-}
-
 .copy { font-size: 14px; }
+.social { display: flex; gap: 12px; }
+#disclaimer { padding: 14px 16px 18px; color: #bbb; font-size: 13px; line-height: 1.5; }
 
-.social {
-  display: flex;
-  gap: 12px;
-}
-.social h3 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: normal;
-  color: #ddd;
-}
+/* 社交图标（Font Awesome） */
+.fa { padding: 12px; font-size: 20px; width: 40px; text-align: center; text-decoration: none; border-radius: 50%; margin: 0 5px; }
+.fa-facebook { background: #3b5998; color: #fff; }
+.fa-instagram{ background: #e4405f; color: #fff; }
+.fa-twitter  { background: #55acee; color: #fff; }
+.fa:hover { opacity: .85; }
 
-/* 免责声明（小字块） */
-#disclaimer {
-  padding: 14px 16px 18px;
-  color: #bbb;
-  font-size: 13px;
-  line-height: 1.5;
+/* ========== Activities (page2) 表格 ========== */
+#activities main table{
+  width: 92%; margin: 20px auto; border-collapse: collapse; table-layout: fixed;
 }
+#activities main caption{
+  background: #7a1a1a; color: #fff; font-weight: 700; text-transform: uppercase;
+  padding: 12px; border: 1px solid #000; border-bottom: none;
+}
+#activities main th, #activities main td{
+  border: 1px solid #000; padding: 10px; text-align: center; height: 44px; word-break: break-word;
+}
+#activities main thead th{ background: #216dcf; color: #fff; font-weight: 700; } /* 表头整行蓝底 */
+#activities main tbody td{ background: #9cd89c; color: #000; }                   /* 内容浅绿 */
+#activities main tbody td:first-child{ background: #216dcf; color: #fff; font-weight: 700; } /* 第一列蓝底 */
+#activities main tfoot td{ background: #a8ffa8; font-style: italic; }
+/* 可选：斑马纹（除第一列） */
+/* #activities main tbody tr:nth-child(even) td:not(:first-child){ background: #8fd28f; } */
 
-/* ========== 响应式微调 ========== */
-@media (max-width: 640px) {
-  .main-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .main-menu {
-    text-align: center;
-  }
-  .main-menu li { margin: 4px 6px; }
-  #nondisclaimer { flex-direction: column; align-items: flex-start; }
+/* ========== Contact (page3) 表单 ========== */
+#contact .contactinfo{
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
 }
-/* ========== Header ========== */
-header {
-  background: url("partners/images/cliff_ocean.jpg") no-repeat center center;
-  background-size: cover;
-  height: 400px;                  /* 调高一点，让中间有空间 */
-  position: relative;             /* 让内部元素能绝对定位 */
-}
+#contact .contactinfo .phone, #contact .contactinfo .email{ display: flex; gap: 6px; }
+#contact .contactinfo span:first-child{ font-weight: 600; margin-right: 8px; }
 
-/* 半透明盒子 */
-.main-header {
-  background: rgba(255, 255, 255, 0.8); /* 白色半透明 */
-  padding: 12px 24px;
+#contact form{ width: min(720px, 94%); margin: 16px auto 24px; }
+#contact fieldset{ border: 1px solid #333; border-radius: 8px; padding: 16px; background: #fff; }
+#contact legend{ font-weight: 700; text-transform: uppercase; padding: 0 6px; }
+#contact .textbox label, #contact .radios label, #contact .selectmenu label, #contact .commentbox label{
+  display: block; margin: 12px 0 6px; font-weight: 600;
+}
+#contact input[type="text"], #contact input[type="email"], #contact select, #contact textarea{
+  width: 100%; padding: 10px; border: 1px solid #bbb; border-radius: 6px; box-sizing: border-box; background: #fff;
+}
+#contact textarea{ min-height: 110px; resize: vertical; }
+#contact input[type="text"]:focus, #contact input[type="email"]:focus, #contact select:focus, #contact textarea:focus{
+  outline: none; border-color: #0b3d91; box-shadow: 0 0 0 3px rgba(11,61,145,.15);
+}
+#contact .radios input[type="radio"]{ width: auto; margin: 0 6px 0 0; }
+#contact .radios label{ display: inline-block; margin-right: 12px; font-weight: 400; }
+#contact .button{ margin-top: 14px; }
+#contact .button input[type="submit"]{
+  width: 100%; padding: 12px; background: #4977D1; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer;
+}
+#contact .button input[type="submit"]:hover{ filter: brightness(.95); }
+
+/* ========== Cliffs（page4）卡片 2×2 + 顶部暗红标题条 ========== */
+.cliff-grid.four{
+  margin: 20px 0 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background: #fff;             /* 与 body 一致可改为 transparent */
+  padding: 20px 0;
+}
+.cliff-card{
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e5e5;
   border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;                       /* 控制宽度，不要全屏 */
-  margin: 0 auto;
-  position: absolute;
-  top: 25%;                          /* 盒子在 header 的 1/4 高度位置 */
-  left: 50%;
-  transform: translateX(-50%);       /* 居中 */
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  transition: transform .15s ease;
+}
+.cliff-card:hover{ transform: translateY(-2px); }
+.cliff-card img{
+  width: 100%; height: 240px; object-fit: cover; display: block;
+}
+.cliff-card .label{
+  position: absolute; left: 0; top: 0; width: 100%;
+  background: #7a1a1a; color: #fff; font-weight: 700;
+  padding: 8px 12px; text-align: center;   /* 修复缺失分号 */
+  /* 或者：设置固定高度+flex 完全居中
+  height: 40px; display: flex; align-items: center; justify-content: center;
+  */
 }
 
-.logo img {
-  height: 60px;    /* 控制 logo 大小 */
-  width: auto;
+/* ========== 响应式 ========== */
+@media (max-width: 900px){
+  .main-header{ width: calc(100% - 32px); }
 }
-
-.main-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+@media (max-width: 700px){
+  .cliff-grid.four{ grid-template-columns: 1fr; }
+  .cliff-card img{ height: 220px; }
 }
-
-.main-menu li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.main-menu a {
-  color: #333;     /* 导航文字深色，和白底对比 */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.main-menu a:hover {
-  color: #9ed034;  /* 悬停时绿色 */
-}
-/* ========== Social Icons ========== */
-.fa {
-  padding: 12px;
-  font-size: 20px;
-  width: 40px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  margin: 0 5px;
-}
-
-/* Facebook */
-.fa-facebook {
-  background: #3b5998;
-  color: white;
-}
-
-/* Instagram */
-.fa-instagram {
-  background: #e4405f;
-  color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-  background: #55acee;
-  color: white;
-}
-
-.fa:hover {
-  opacity: 0.8;
-}
-/* =========================
-   Page-specific headers
-   ========================= */
-#home header {
-  background: url("partners/images/cliff_ocean.jpg") no-repeat center/cover;
-}
-#activities header {
-  background: url("cliff_rock.jpg") no-repeat center/cover;   /* 放在根目录就用这个路径 */
-}
-#contact header {
-  background: url("runfly.jpg") no-repeat center/cover;
-}
-
-/* =========================
-   Activities (page2) table
-   ========================= */
-#activities main table {
-  width: 92%;
-  margin: 20px auto;
-  border-collapse: collapse;       /* 合并边框：所有分割线清晰 */
-  table-layout: fixed;             /* 单元格更均匀 */
-}
-#activities main caption {
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 12px;
-  color: #753a30;
-  border: 1px solid #000;          /* caption 外框 */
-  border-bottom: none;             /* 与表格无缝衔接 */
-}
-#activities main th,
-#activities main td {
-  border: 1px solid #000;
-  padding: 10px;
-  text-align: center;
-  height: 44px;
-  word-break: break-word;
-}
-#activities main thead th { background: #f5f5f5; }
-#activities main tbody tr:nth-child(even) td { background: #fafafa; }
-#activities main tfoot td { background: #f5f5f5; font-style: italic; }
-
-/* 可选：第一列（活动名）强调 */
-#activities main tbody td:first-child {
-  font-weight: 600;
-  background: #eef7e9;
-}
-
-/* =========================
-   Contact (page3) form
-   ========================= */
-#contact .contactinfo {
-  display: flex;
-  flex-direction: column; /* 垂直方向排列 */
-  align-items: flex-start; /* 靠左对齐 */
-  gap: 8px; /* 上下间距 */
-}
-.contactinfo .phone,
-.contactinfo .email {
-  display: flex;
-  gap: 6px; /* Phone: / Email: 标签与内容之间的间距 */
-}
-#contact .contactinfo span:first-child {
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-#contact form {
-  width: min(720px, 94%);
-  margin: 16px auto 24px;
-}
-#contact fieldset {
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 16px;
-  background: #fff;
-}
-#contact legend {
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0 6px;
-}
-
-/* 统一输入类 */
-#contact .textbox label,
-#contact .radios label,
-#contact .selectmenu label,
-#contact .commentbox label {
-  display: block;
-  margin: 12px 0 6px;
-  font-weight: 600;
-}
-#contact input[type="text"],
-#contact input[type="email"],
-#contact select,
-#contact textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  box-sizing: border-box;
-  background: #fff;
-}
-#contact textarea { min-height: 110px; resize: vertical; }
-#contact input[type="text"]:focus,
-#contact input[type="email"]:focus,
-#contact select:focus,
-#contact textarea:focus {
-  outline: none;
-  border-color: #0b3d91;
-  box-shadow: 0 0 0 3px rgba(11,61,145,.15);
-}
-
-/* radios 横排 */
-#contact .radios input[type="radio"] {
-  width: auto; margin: 0 6px 0 0;
-}
-#contact .radios label { display: inline-block; margin-right: 12px; font-weight: 400; }
-
-/* 按钮 */
-#contact .button { margin-top: 14px; }
-#contact .button input[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  background: #4977D1;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-}
-#contact .button input[type="submit"]:hover { filter: brightness(0.95); }
-
-/* 小屏优化 */
-@media (max-width: 640px) {
-  #contact .contactinfo { grid-template-columns: 1fr; }
-  #contact form { width: 100%; }
-}
-
-/* =========================
-   Activities (page2) table
-   ========================= */
-#activities main table {
-  width: 92%;
-  margin: 20px auto;
-  border-collapse: collapse;   /* 合并边框，线条清晰 */
-  table-layout: fixed;         /* 列宽更均匀 */
-}
-
-/* caption：红底白字，上边框与表格无缝衔接 */
-#activities main caption {
-  background: #7a1a1a;         /* 深红 */
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 12px;
-  border: 1px solid #000;
-  border-bottom: none;
-}
-
-/* 基础单元格：统一边框/内边距/居中 */
-#activities main th,
-#activities main td {
-  border: 1px solid #000;
-  padding: 10px;
-  text-align: center;
-  height: 44px;
-  word-break: break-word;
-}
-
-/* 表头整行：蓝底白字 */
-#activities main thead th {
-  background: #216dcf;         /* 蓝色 */
-  color: #fff;
-  font-weight: 700;
-}
-
-/* 内容单元格：浅绿底 */
-#activities main tbody td {
-  background: #9cd89c;         /* 浅绿 */
-  color: #000;
-}
-
-/* 第一列（活动名）：蓝底白字，覆盖浅绿 */
-#activities main tbody td:first-child {
-  background: #216dcf;
-  color: #fff;
-  font-weight: 700;
-}
-
-/* 表尾：更浅的绿，并用斜体提示 */
-#activities main tfoot td {
-  background: #a8ffa8;
-  font-style: italic;
-}
-/*DEBUG*/
-#activities main tbody tr > :is(th, td):first-child {
-  background: #216dcf !important;
-  color: #fff !important;
-  font-weight: 700;
+@media (max-width: 640px){
+  .main-header{ flex-direction: column; align-items: stretch; }
+  .main-menu{ text-align: center; }
+  .main-menu li{ margin: 4px 6px; }
+  #nondisclaimer{ flex-direction: column; align-items: flex-start; }
 }

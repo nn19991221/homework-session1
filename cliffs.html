@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Great Cliff's - Activities</title>
+  <title>Great Cliffs – Cliffs</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome（社交图标用一次就好，别重复引多次） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="activities">
+<body id="cliffs">
   <div class="container">
 
     <!-- Header -->
@@ -18,74 +19,52 @@
         <nav class="main-menu">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="page2.html" class="active">Activities</a></li>
-            <li><a href="cliffs.html">Cliffs</a></li>
+            <li><a href="page2.html">Activities</a></li>
+            <li><a href="cliffs.html" class="active">Cliffs</a></li>
             <li><a href="page3.html">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main>
-      <h2>Cliff Activities</h2>
-      <p>Here are some activities you can enjoy at our Great Cliffs locations.</p>
+    <h2>California's Greatest Cliffs</h2>
+    <p>
+        The greatest cliffs are these four cliffs located in southern California. Each of these cliffs have
+        their own uniqueness and beauty: West Cliff, North Cliff, East Cliff and South Cliff are the pride
+        of California. Each cliff has many amenities to offer visitors such as recreational areas, camping
+        sites, wildlife watch spots and overnight cabins.
+    </p>
+    <p>
+        No matter which direction you head from Irvine, California, the sites are easily reached within a
+        100 mile radius. West Cliff is the most popular among Westcliff University campus students because
+        of its close proximity.
+    </p>
 
-    <table>
-    <caption>Activities at the Cliffs</caption>
-
-    <thead>
-        <tr>
-        <th>Activity</th>
-        <th>West Cliff</th>
-        <th>North Cliff</th>
-        <th>East Cliff</th>
-        <th>South Cliff</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-        <td>Hiking</td>
-        <td>College Hikes</td>
-        <td>Family Fun</td>
-        <td>Treasure Trails</td>
-        <td>Canyon Explorer</td>
-        </tr>
-        <tr>
-        <td>Kayak</td>
-        <td>Western Kayak Meetup</td>
-        <td>Not Available</td>
-        <td>Youth Kayaking</td>
-        <td>Kayak Down</td>
-        </tr>
-        <tr>
-        <td>Skydiving</td>
-        <td>Seacliff Diving</td>
-        <td>Sky is the limit</td>
-        <td>Not Available</td>
-        <td>Sky Diving for Beginners</td>
-        </tr>
-        <tr>
-        <td>Biking</td>
-        <td>Bicycle for One</td>
-        <td>Not Available</td>
-        <td>Bike Meetup Group</td>
-        <td>Not Available</td>
-        </tr>
-        <tr>
-        <td>Camping</td>
-        <td>Youth Camp</td>
-        <td>Rent a Tent</td>
-        <td>Campground Adventure</td>
-        <td>Sunset Camping</td>
-        </tr>
-    </tbody>
-    </table>
-
+    <!-- 2×2 图片网格（白底卡片 + 暗红标题条覆盖在图片上方） -->
+    <section class="cliff-grid four">
+        <figure class="cliff-card">
+        <img src="cliff-west-sea.jpg" alt="West Cliff">
+        <figcaption class="label">West Cliff</figcaption>
+        </figure>
+        <figure class="cliff-card">
+        <img src="cliff-north-mountain.jpg" alt="North Cliff">
+        <figcaption class="label">North Cliff</figcaption>
+        </figure>
+        <figure class="cliff-card">
+        <img src="cliff-east-river.jpg" alt="East Cliff">
+        <figcaption class="label">East Cliff</figcaption>
+        </figure>
+        <figure class="cliff-card">
+        <img src="cliff-south-canyon.jpg" alt="South Cliff">
+        <figcaption class="label">South Cliff</figcaption>
+        </figure>
+    </section>
     </main>
 
-    <!-- Partners Section -->
+
+    <!-- Partners（和其它页保持一致） -->
     <section id="partners-section">
       <ul id="partners">
         <li class="partner"><img src="partners/partner-bustour.png" alt="Partner - Bus Tour"></li>
