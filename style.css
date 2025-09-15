@@ -1,0 +1,254 @@
+/* ========== 全局基础 ========== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #fafafa;
+}
+
+/* 容器：限制整体宽度并居中 */
+.container {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+}
+
+/* ========== Header ========== */
+/* 如果有头图，可把下面 background 改成：background: url("images/header.jpg") center/cover no-repeat; */
+header {
+  background: linear-gradient(135deg, #0b3d91 0%, #1a237e 100%);
+  color: #fff;
+  padding: 12px 0;
+}
+
+.main-header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 16px;
+  background: rgba(0,0,0,0.15);         /* 半透明条，让文字更清楚 */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo h3 {
+  margin: 0;
+  color: #fff;
+  letter-spacing: .5px;
+}
+
+/* ========== 主导航 ========== */
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.main-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background .2s ease, color .2s ease;
+}
+
+.main-menu a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.main-menu a.active {
+  background: #9ed034;            /* 课件绿色 */
+  color: #133a00;
+  font-weight: bold;
+}
+
+/* ========== Main 内容 ========== */
+main { padding: 22px 4px 28px; }
+
+main h2 {
+  color: #9ed034;
+  margin: 0 0 10px;
+}
+
+main h3 {
+  color: #205b2f;
+  margin: 18px 0 8px;
+}
+
+main p { margin: 0 0 14px; }
+
+/* 整个 partners 区域长方形背景 */
+section {
+  background-color: #3887db;   /* 蓝色背景 */
+  padding: 30px 0;             /* 上下留白 */
+}
+
+/* 伙伴列表：水平居中 */
+#partners {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;             /* 自动换行 */
+  gap: 20px;
+  max-width: 1000px;           /* 可以限制最大宽度 */
+}
+
+/* 每个 partner 是小圆形 */
+#partners .partner {
+  width: 100px;
+  height: 100px;
+  background: white;           /* 小圆底色白色，更突出 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图片缩放居中显示 */
+#partners .partner img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
+/* ========== Footer ========== */
+footer {
+  background: #222;
+  color: #eee;
+  margin-top: 24px;
+}
+
+#nondisclaimer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #333;
+}
+
+.copy { font-size: 14px; }
+
+.social {
+  display: flex;
+  gap: 12px;
+}
+.social h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: normal;
+  color: #ddd;
+}
+
+/* 免责声明（小字块） */
+#disclaimer {
+  padding: 14px 16px 18px;
+  color: #bbb;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========== 响应式微调 ========== */
+@media (max-width: 640px) {
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .main-menu {
+    text-align: center;
+  }
+  .main-menu li { margin: 4px 6px; }
+  #nondisclaimer { flex-direction: column; align-items: flex-start; }
+}
+/* ========== Header ========== */
+header {
+  background: url("partners/images/cliff_ocean.jpg") no-repeat center center;
+  background-size: cover;
+  height: 400px;                  /* 调高一点，让中间有空间 */
+  position: relative;             /* 让内部元素能绝对定位 */
+}
+
+/* 半透明盒子 */
+.main-header {
+  background: rgba(255, 255, 255, 0.8); /* 白色半透明 */
+  padding: 12px 24px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;                       /* 控制宽度，不要全屏 */
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;                          /* 盒子在 header 的 1/4 高度位置 */
+  left: 50%;
+  transform: translateX(-50%);       /* 居中 */
+}
+
+.logo img {
+  height: 60px;    /* 控制 logo 大小 */
+  width: auto;
+}
+
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.main-menu a {
+  color: #333;     /* 导航文字深色，和白底对比 */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-menu a:hover {
+  color: #9ed034;  /* 悬停时绿色 */
+}
+/* ========== Social Icons ========== */
+.fa {
+  padding: 12px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+  background: #e4405f;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa:hover {
+  opacity: 0.8;
+}
