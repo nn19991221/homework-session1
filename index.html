@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Great Cliff's Home Page</title>
   <link rel="stylesheet" href="style.css">
+  <!-- 新增：数字时钟脚本 -->
+  <script defer src="script.js"></script>
 </head>
 <body id="home">
   <div class="container">
@@ -22,13 +24,18 @@
             <li><a href="page3.html">Contact</a></li>
           </ul>
         </nav>
-
       </div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </header>
 
     <!-- Main Content -->
     <main>
+      <!-- 新增：数字时钟区块 -->
+      <section class="clock-section">
+        <div id="clock" class="digital-clock">--:--:-- <span class="ampm">--</span></div>
+        <div id="timezone" class="tz-label">Detecting time zone…</div>
+      </section>
+
       <h2>Introducing California's Greatest Cliffs</h2>
 
       <h3>What is so unique about California cliffs?</h3>
@@ -70,7 +77,6 @@
           <a href="#" class="fa fa-instagram"></a>
           <a href="#" class="fa fa-twitter"></a>
         </div>
-
       </div>
       <div id="disclaimer">
         <p>
