@@ -3,35 +3,40 @@
 <head>
   <meta charset="utf-8">
   <title>Great Cliff's Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- 新增：数字时钟脚本 -->
-  <script defer src="script.js"></script>
+  <!-- Font Awesome (建议放在 head 中) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- 数字时钟脚本（外部化，defer 保证 DOM 先加载） -->
+  <script defer src="js/digclock.js"></script>
 </head>
 <body id="home">
   <div class="container">
-    
     <!-- Header -->
     <header>
       <div class="main-header">
         <div class="logo">
+          <!-- 如路径不同请改为实际路径，例如 images/logo.png -->
           <img src="partners/images/logo.png" alt="Great Cliffs Logo">
         </div>
-        <nav class="main-menu">
+        <nav class="main-menu" aria-label="Primary">
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="page2.html">Activities</a></li>
+            <li><a href="activities.html">Activities</a></li>
             <li><a href="cliffs.html">Cliffs</a></li>
-            <li><a href="page3.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </header>
 
     <!-- Main Content -->
     <main>
-      <!-- 新增：数字时钟区块 -->
-      <section class="clock-section">
+      <!-- 数字时钟区块 -->
+      <section class="clock-section" aria-live="polite">
         <div id="clock" class="digital-clock">--:--:-- <span class="ampm">--</span></div>
         <div id="timezone" class="tz-label">Detecting time zone…</div>
       </section>
@@ -40,22 +45,23 @@
 
       <h3>What is so unique about California cliffs?</h3>
       <p>
-        California cliffs are one of a kind in the United States where no cliffs are as magnificent 
-        and beautiful as them. And California is the only state that have cliffs that fronts all 
-        possible environments: sea, river, mountains and canyons. There are four such individual 
-        unique cliffs: West Cliff, North Cliff, East Cliff and South Cliff. All offer fantastic 
+        California cliffs are one of a kind in the United States where no cliffs are as magnificent
+        and beautiful as them. And California is the only state that have cliffs that fronts all
+        possible environments: sea, river, mountains and canyons. There are four such individual
+        unique cliffs: West Cliff, North Cliff, East Cliff and South Cliff. All offer fantastic
         overlooking views, recreational areas, camping sites, wildlife watch spots and overnight cabins.
       </p>
 
       <h3>Where are these cliffs?</h3>
       <p>
-        Located within a 100 mile radius from Irvine, California, they can be reached by roads easily. 
+        Located within a 100 mile radius from Irvine, California, they can be reached by roads easily.
         The closest cliff to Irvine is West Cliff, which is the most popular and most visited.
       </p>
     </main>
 
     <!-- Partners Section -->
-    <section id="partners-section">
+    <section id="partners-section" aria-labelledby="partners-heading">
+      <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
       <ul id="partners"></ul>
     </section>
 
@@ -66,19 +72,18 @@
           &copy; Copyright 2025 : GreatCliffs.com
         </div>
         <div class="social">
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-instagram"></a>
-          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+          <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
+          <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
         </div>
       </div>
       <div id="disclaimer">
-        <p>
-          Made By Jinchen Xiao for educational purposes only. 
-        </p>
+        <p>Made By Jinchen Xiao for educational purposes only.</p>
       </div>
     </footer>
-
   </div>
-<script src="script.js"></script>
+
+  <!-- 站点通用脚本（外部化）：渲染 partners 列表 -->
+  <script defer src="js/site_scripts.js"></script>
 </body>
 </html>

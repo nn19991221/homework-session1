@@ -221,3 +221,77 @@ footer { background: #222; color: #eee; margin-top: 24px; }
   font-size: 14px;
   color: #445;
 }
+/* ====== Contact: 提交按钮（改为 <button> 的兼容样式） ====== */
+/* 保留原 input[type=submit]，同时覆盖 #submitBtn，保证两种写法都好看 */
+#contact .button input[type="submit"],
+#contact .button #submitBtn {
+  width: 100%;
+  padding: 12px;
+  background: #4977D1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .15s ease, opacity .15s ease;
+}
+#contact .button input[type="submit"]:hover,
+#contact .button #submitBtn:hover { filter: brightness(.95); }
+
+/* 禁用态（Day1 要求：默认禁用，需明显反馈） */
+#contact .button #submitBtn:disabled,
+#contact .button .btn-disabled {
+  background: #bbb !important;
+  cursor: not-allowed;
+  filter: none;
+  opacity: .9;
+}
+
+/* 验证码区域（可选，美化一点间距与字体） */
+#contact .code-verify {
+  margin-top: 14px;
+}
+#contact #codeStr {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .12em;
+}
+
+/* 可复用的次级按钮（如 Regenerate） */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #4977D1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: filter .15s ease;
+}
+.btn:hover { filter: brightness(.95); }
+
+/* ====== 无障碍辅助类 ====== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ====== （可选）Info Box 通用样式：如果后面要做弹窗可直接用 ====== */
+.info-box {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 380px);
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  z-index: 1000;
+}
+.info-box h3 { margin: 0 0 8px; color: #0b3d91; }
+.info-box a { display: inline-block; margin-top: 10px; color: #4977D1; text-decoration: underline; }
