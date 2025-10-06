@@ -295,3 +295,23 @@ footer { background: #222; color: #eee; margin-top: 24px; }
 }
 .info-box h3 { margin: 0 0 8px; color: #0b3d91; }
 .info-box a { display: inline-block; margin-top: 10px; color: #4977D1; text-decoration: underline; }
+/* ====== Activities：可选/不可选/选中 高亮与光标 ====== */
+/* 可选单元格：手型光标 */
+#activities main td.selectable {
+  cursor: pointer;
+}
+
+/* 不可选：Not Available 或第一列（活动名称） */
+#activities main td.na,
+#activities main td.row-title {
+  color: #666;                 /* 比 #888 再深一点，保持可读性 */
+  background: #e9e9e9;         /* 与你的整体浅色系相近 */
+  cursor: not-allowed;
+}
+
+/* 已选中的高亮（与你的绿色表格搭配） */
+#activities main td.selected {
+  background: #ffe58a;         /* 柔和黄底 */
+  outline: 2px solid #f0ad00;  /* 清晰边线 */
+  outline-offset: -2px;         /* 与表格边框更贴合 */
+}
