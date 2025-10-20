@@ -16,7 +16,7 @@
 </head>
 
 <body id="contact" onload="disableButton && disableButton(true)">
-  <!-- Bootstrap Navbar（保留 Bootstrap 自带 .container） -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top gc-navbar">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="Great Cliffs Home">
@@ -40,12 +40,10 @@
     </div>
   </nav>
 
-  <!-- 顶层自定义包裹，用 .site-container，避免覆盖 Bootstrap 的 .container -->
-  <div class="site-container">
-    <!-- Hero 占位头部（背景图在 CSS 的 body#contact 上） -->
-    <header></header>
+  <!-- Hero 占位 -->
+  <header></header>
 
-    <!-- Main Content -->
+  <div class="container">
     <main>
       <h1>Contacting Us</h1>
       <p>
@@ -71,24 +69,24 @@
 
           <div class="textbox">
             <label for="name">Name:</label> 
-            <input id="name" type="text" name="name" placeholder="John Doe" required>
+            <input id="name" class="form-control" type="text" name="name" placeholder="John Doe" required>
 
-            <label for="email">Email:</label>  
-            <input id="email" type="email" name="email" placeholder="johndoe@gmail.com" required> 
+            <label for="email" class="mt-2">Email:</label>  
+            <input id="email" class="form-control" type="email" name="email" placeholder="johndoe@gmail.com" required> 
 
-            <label for="phone">Phone:</label>
-            <input id="phone" type="text" name="phone" placeholder="xxx-xxx-xxxx">
+            <label for="phone" class="mt-2">Phone:</label>
+            <input id="phone" class="form-control" type="text" name="phone" placeholder="xxx-xxx-xxxx">
           </div>
           
-          <div class="radios mt-2" role="radiogroup" aria-label="Preferred contact method">
+          <div class="radios mt-3" role="radiogroup" aria-label="Preferred contact method">
             <span class="d-block mb-1">How should we contact you?</span>
-            <label><input type="radio" name="contact" value="email" checked> Email</label>
+            <label class="mr-3"><input type="radio" name="contact" value="email" checked> Email</label>
             <label><input type="radio" name="contact" value="phone"> Phone</label>
           </div>
 
-          <div class="selectmenu">
+          <div class="selectmenu mt-2">
             <label for="cliff">Which Cliff are you inquiring?</label>  
-            <select id="cliff" name="cliff">
+            <select id="cliff" class="form-control" name="cliff">
               <option>West Cliff</option>
               <option>North Cliff</option>
               <option>East Cliff</option>
@@ -96,19 +94,19 @@
             </select>
           </div>
           
-          <div class="commentbox">
+          <div class="commentbox mt-2">
             <label for="message">How did you hear about us:</label>  
-            <textarea id="message" name="message" rows="4"></textarea>
+            <textarea id="message" class="form-control" name="message" rows="4"></textarea>
           </div>
 
           <div class="code-verify mt-3">
             <label for="codeInput">Enter the 8-character code:</label>
-            <input id="codeInput" type="text" maxlength="8" placeholder="XXXXXXXX" autocomplete="off">
+            <input id="codeInput" class="form-control" type="text" maxlength="8" placeholder="XXXXXXXX" autocomplete="off">
 
-            <div class="mt-2">
+            <div class="mt-2 d-flex align-items-center">
               <strong>Code:</strong>
-              <span id="codeStr" aria-live="polite">────────</span>
-              <button type="button" id="regenCode" class="btn btn-secondary btn-sm ml-2">Regenerate</button>
+              <span id="codeStr" class="ml-2" aria-live="polite">────────</span>
+              <button type="button" id="regenCode" class="btn btn-secondary btn-sm ml-3">Regenerate</button>
             </div>
           </div>
 
@@ -120,30 +118,30 @@
         </fieldset>
       </form>
     </main>
-
-    <!-- Partners Section（这里用 Bootstrap 的 .container，保持响应式） -->
-    <section id="partners-section" aria-labelledby="partners-heading">
-      <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
-      <div class="container">
-        <ul id="partners" class="row justify-content-center"></ul>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div id="nondisclaimer">
-        <div class="copy">&copy; Copyright 2025 : GreatCliffs.com</div>
-        <div class="social">
-          <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-          <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
-          <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
-        </div>
-      </div>
-      <div id="disclaimer">
-        <p>Made By Jinchen Xiao for educational purposes only.</p>
-      </div>
-    </footer>
   </div>
+
+  <!-- Partners -->
+  <section id="partners-section" aria-labelledby="partners-heading">
+    <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
+    <div class="container">
+      <ul id="partners" class="row justify-content-center"></ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div id="nondisclaimer">
+      <div class="copy">&copy; Copyright 2025 : GreatCliffs.com</div>
+      <div class="social">
+        <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+        <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
+        <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+      </div>
+    </div>
+    <div id="disclaimer">
+      <p>Made By Jinchen Xiao for educational purposes only.</p>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script defer src="js/site_scripts.js"></script>

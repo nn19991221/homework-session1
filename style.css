@@ -362,3 +362,23 @@ footer { background: #222; color: #eee; margin-top: 24px; }
 }
 .gc-navbar { background-color: rgba(38,41,61,.7) !important; }
 .gc-navbar .nav-link, .gc-navbar .navbar-brand { color:#fff !important; }
+
+body#home,
+body#activities,
+body#cliffs,
+body#contact {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+#contact form {
+  width: 100%;
+  max-width: 720px;      
+  margin: 16px auto 24px;
+}
+
+
+.gc-navbar { background-color: rgba(38, 41, 61, 0.7) !important; }
+.gc-navbar .nav-link, .gc-navbar .navbar-brand { color: #fff !important; }

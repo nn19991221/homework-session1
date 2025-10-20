@@ -1,8 +1,18 @@
 // js/activity.js
 $(function () {
   const $table = $('main table');
+
+  // —— Modal 相关节点（Day 2 要求）——
+  const $modal = $('#selectedModal');
+  const $modalList = $('#modalList');
+  const $modalEmpty = $('#modalEmpty');
+
+  // —— 兼容旧版（选中列表盒子，若不存在也不影响）——
   const $box = $('#selected-box');
   const $list = $('#selected-list');
+
+  // 用 Map 保存当前选中项：key => { text, cliff, colIndex }
+  const selected = new Map();
 
   // 1) 标记 “Not Available” 为不可选
   $table.find('tbody td').filter(function () {
@@ -19,14 +29,14 @@ $(function () {
   $table.find('tbody tr').each(function () {
     $(this).children('td:not(.na):not(.row-title)')
       .addClass('selectable')
-      .attr({ 'role': 'button', 'tabindex': '0', 'aria-pressed': 'false' });
+      .attr({ role: 'button', tabindex: '0', 'aria-pressed': 'false' });
   });
 
   // —— 工具：根据单元格生成唯一 key（防止重复项）——
   function cellKey($cell) {
     const text = $cell.text().trim();
-    const colIndex = $cell.index();                 // 列索引
-    return `${colIndex}::${text}`;                  // 组合成唯一键
+    const colIndex = $cell.index();  // 列索引
+    return `${colIndex}::${text}`;   // 组合成唯一键
   }
 
   // —— 工具：根据列索引取表头（cliff 名）——
@@ -34,33 +44,65 @@ $(function () {
     return $table.find('thead th').eq(colIndex).text().trim();
   }
 
-  // 4) 点击切换 & 同步侧边列表
+  // —— 渲染到 Modal & 兼容旧版列表 —— 
+  function renderSelection() {
+    // 渲染 Modal
+    $modalList.empty();
+    if (selected.size === 0) {
+      $modalEmpty.show();
+    } else {
+      $modalEmpty.hide();
+      // 用列表展示
+      // 你也可以换成 <ul class="list-group"> 样式：把 li 加上 class="list-group-item d-flex justify-content-between align-items-center"
+      selected.forEach((item, key) => {
+        const $li = $(`
+          <li data-key="${key}" class="mb-1">
+            ${item.text} — <em>${item.cliff}</em>
+          </li>
+        `);
+        $modalList.append($li);
+      });
+    }
+
+    // 兼容旧版（如果页面还保留了 Selected Box）
+    if ($list.length) {
+      $list.empty();
+      selected.forEach((item, key) => {
+        $list.append(`<li data-key="${key}">${item.text} — <em>${item.cliff}</em></li>`);
+      });
+      if (selected.size === 0) {
+        $box.hide();
+      } else {
+        $box.show();
+      }
+    }
+  }
+
+  // 4) 点击切换 & 同步 Modal
   $table.on('click', 'td.selectable', function () {
     const $cell = $(this);
-    const isSelected = $cell.hasClass('selected');
+    const key = cellKey($cell);
     const text = $cell.text().trim();
     const colIndex = $cell.index();
     const cliff = cliffNameByCol(colIndex);
-    const key = cellKey($cell);
 
-    if (isSelected) {
-      // 取消选中：移除样式与列表项
+    if ($cell.hasClass('selected')) {
+      // 取消选中
       $cell.removeClass('selected').attr('aria-pressed', 'false');
-      $list.find(`li[data-key="${key}"]`).remove();
+      selected.delete(key);
     } else {
-      // 选中：加样式并添加到列表（带 cliff 名）
+      // 选中
       $cell.addClass('selected').attr('aria-pressed', 'true');
-      // 避免重复添加
-      if ($list.find(`li[data-key="${key}"]`).length === 0) {
-        $list.append(`<li data-key="${key}">${text} — <em>${cliff}</em></li>`);
-      }
+      selected.set(key, { text, cliff, colIndex });
     }
 
-    // 控制显示/隐藏
-    if ($list.children().length === 0) {
-      $box.hide();
+    renderSelection();
+
+    // 有选中项时，展示 Modal（符合 Day 2 要求）
+    if (selected.size > 0) {
+      $modal.modal('show');
     } else {
-      $box.show();
+      $modal.modal('hide');
     }
   });
 
