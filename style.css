@@ -9,7 +9,7 @@ body {
 }
 
 /* 容器：限制整体宽度并居中 */
-.container { width: min(1100px, 94%); margin: 0 auto; }
+.site-container { width: min(1100px, 94%); margin: 0 auto; }
 
 /* ========== Header（通用） ========== */
 header {
@@ -337,3 +337,28 @@ footer { background: #222; color: #eee; margin-top: 24px; }
   padding-left: 20px;
   color: #333;
 }
+
+.gc-navbar {
+  background-color: rgba(38, 41, 61, 0.7) !important;
+}
+.gc-navbar .nav-link,
+.gc-navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.gc-navbar {
+  background-color: rgba(38, 41, 61, 0.7) !important;
+}
+.gc-navbar .nav-link,
+.gc-navbar .navbar-brand {
+  color: #fff !important;
+}
+.gc-navbar {
+  background-color: rgba(38, 41, 61, 0.7) !important;
+}
+.gc-navbar .nav-link,
+.gc-navbar .navbar-brand {
+  color: #fff !important;
+}
+.gc-navbar { background-color: rgba(38,41,61,.7) !important; }
+.gc-navbar .nav-link, .gc-navbar .navbar-brand { color:#fff !important; }

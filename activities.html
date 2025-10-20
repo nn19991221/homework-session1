@@ -2,35 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Great Cliff's - Activities</title>
+  <title>Great Cliffs — Activities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 <body id="activities">
-  <div class="container">
 
-    <!-- Header -->
-    <header>
-      <div class="main-header">
-        <div class="logo">
-          <img src="partners/images/logo.png" alt="Great Cliffs Logo">
-        </div>
-        <nav class="main-menu" aria-label="Primary">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="activities.html" class="active">Activities</a></li>
-            <li><a href="cliffs.html">Cliffs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top gc-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="Great Cliffs Home">
+        <img src="partners/images/logo.png" alt="Great Cliffs Logo" style="height:36px;" class="mr-2">
+        <span>Great Cliffs</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gcNav"
+              aria-controls="gcNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="gcNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="activities.html">Activities</a></li>
+          <li class="nav-item"><a class="nav-link" href="cliffs.html">Cliffs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
+  <!-- Hero 占位头部（背景图在 CSS） -->
+  <header></header>
+
+  <!-- Main Content -->
+  <div class="container">
     <main>
       <h2>Cliff Activities</h2>
       <p>Here are some activities you can enjoy at our Great Cliffs locations.</p>
@@ -84,44 +98,42 @@
           </tr>
         </tbody>
       </table>
+
       <!-- 显示已选择活动 -->
       <div id="selected-box" class="info-box" style="display:none;">
         <h3>Selected Activities:</h3>
         <ul id="selected-list"></ul>
       </div>
-
     </main>
-
-    <!-- Partners Section -->
-    <section id="partners-section" aria-labelledby="partners-heading">
-      <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
-      <ul id="partners"></ul>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div id="nondisclaimer">
-        <div class="copy">
-          &copy; Copyright 2025 : GreatCliffs.com
-        </div>
-        <div class="social">
-          <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
-          <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
-          <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
-        </div>
-      </div>
-      <div id="disclaimer">
-        <p>Made By Jinchen Xiao for educational purposes only.</p>
-      </div>
-    </footer>
-
   </div>
 
- 
+  <!-- Partners Section -->
+  <section id="partners-section" aria-labelledby="partners-heading">
+    <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
+    <div class="container">
+      <ul id="partners" class="row justify-content-center"></ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div id="nondisclaimer">
+      <div class="copy">&copy; Copyright 2025 : GreatCliffs.com</div>
+      <div class="social">
+        <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+        <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
+        <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+      </div>
+    </div>
+    <div id="disclaimer">
+      <p>Made By Jinchen Xiao for educational purposes only.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script defer src="js/site_scripts.js"></script>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/activity.js"></script>
 </body>
 </html>

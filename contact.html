@@ -2,35 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Great Cliff's - Contact</title>
+  <title>Great Cliffs — Contact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 
+<body id="contact" onload="disableButton && disableButton(true)">
+  <!-- Bootstrap Navbar（保留 Bootstrap 自带 .container） -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top gc-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html" aria-label="Great Cliffs Home">
+        <img src="partners/images/logo.png" alt="Great Cliffs Logo" style="height:36px;" class="mr-2">
+        <span>Great Cliffs</span>
+      </a>
 
-<body id="contact" onload="disableButton(true)">
-  <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gcNav"
+              aria-controls="gcNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Header -->
-    <header>
-      <div class="main-header">
-        <div class="logo">
-          <img src="partners/images/logo.png" alt="Great Cliffs Logo">
-        </div>
-        <nav class="main-menu" aria-label="Primary">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="activities.html">Activities</a></li>
-            <li><a href="cliffs.html">Cliffs</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-          </ul>
-        </nav>
+      <div class="collapse navbar-collapse" id="gcNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+          <li class="nav-item"><a class="nav-link" href="cliffs.html">Cliffs</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
       </div>
-    </header>
+    </div>
+  </nav>
+
+  <!-- 顶层自定义包裹，用 .site-container，避免覆盖 Bootstrap 的 .container -->
+  <div class="site-container">
+    <!-- Hero 占位头部（背景图在 CSS 的 body#contact 上） -->
+    <header></header>
 
     <!-- Main Content -->
     <main>
@@ -41,7 +54,7 @@
         the Cliffs, Hours of Operations, Facilities or questions about this site using one of the following:
       </p>
       
-      <div class="contactinfo">
+      <div class="contactinfo mb-3">
         <div class="phone">
           <span>Phone:</span>
           <span>(800)GCLIFFS</span>
@@ -67,8 +80,8 @@
             <input id="phone" type="text" name="phone" placeholder="xxx-xxx-xxxx">
           </div>
           
-          <div class="radios" role="radiogroup" aria-label="Preferred contact method">
-            <span>How should we contact you?</span>
+          <div class="radios mt-2" role="radiogroup" aria-label="Preferred contact method">
+            <span class="d-block mb-1">How should we contact you?</span>
             <label><input type="radio" name="contact" value="email" checked> Email</label>
             <label><input type="radio" name="contact" value="phone"> Phone</label>
           </div>
@@ -88,37 +101,38 @@
             <textarea id="message" name="message" rows="4"></textarea>
           </div>
 
-          
-          <div class="code-verify" style="margin-top:14px;">
+          <div class="code-verify mt-3">
             <label for="codeInput">Enter the 8-character code:</label>
             <input id="codeInput" type="text" maxlength="8" placeholder="XXXXXXXX" autocomplete="off">
 
-            <div style="margin-top:8px;">
+            <div class="mt-2">
               <strong>Code:</strong>
               <span id="codeStr" aria-live="polite">────────</span>
-              <button type="button" id="regenCode" class="btn" style="margin-left:10px;">Regenerate</button>
+              <button type="button" id="regenCode" class="btn btn-secondary btn-sm ml-2">Regenerate</button>
             </div>
           </div>
 
-          <div class="button" style="margin-top:14px;">
-            <button type="submit" id="submitBtn">Inquire</button>
+          <div class="button mt-3">
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-block" disabled>
+              <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Request
+            </button>
           </div>
         </fieldset>
       </form>
     </main>
 
-    <!-- Partners Section -->
+    <!-- Partners Section（这里用 Bootstrap 的 .container，保持响应式） -->
     <section id="partners-section" aria-labelledby="partners-heading">
       <h2 id="partners-heading" class="visually-hidden">Our Partners</h2>
-      <ul id="partners"></ul>
+      <div class="container">
+        <ul id="partners" class="row justify-content-center"></ul>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
       <div id="nondisclaimer">
-        <div class="copy">
-          &copy; Copyright 2025 : GreatCliffs.com
-        </div>
+        <div class="copy">&copy; Copyright 2025 : GreatCliffs.com</div>
         <div class="social">
           <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
           <a href="#" class="fa fa-instagram" aria-label="Instagram"></a>
@@ -129,12 +143,12 @@
         <p>Made By Jinchen Xiao for educational purposes only.</p>
       </div>
     </footer>
-
   </div>
 
-  <!-- 通用脚本：partners 渲染 -->
+  <!-- Scripts -->
   <script defer src="js/site_scripts.js"></script>
-  
   <script defer src="js/randomcodes.js"></script>
+  <script src="https://code.jquery.com/jquery/3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
